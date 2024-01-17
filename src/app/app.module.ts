@@ -10,6 +10,7 @@ import { WycieczkaDodajComponent } from './wycieczki/wycieczka-dodaj/wycieczka-d
 import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-ocena.component';
 import { WycieczkaFiltrComponent } from './wycieczki/wycieczka-filtr/wycieczka-filtr.component'; // Dodaj import
 import { WycieczkaFiltrService } from './wycieczki/wycieczka-filtr/wycieczka-filtr.service'; // Dodaj import
+import { OrderComponent } from './order/order.component'; // Dodaj import
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { WycieczkaFiltrService } from './wycieczki/wycieczka-filtr/wycieczka-fil
     WycieczkaDodajComponent,
     WycieczkaOcenaComponent,
     WycieczkaFiltrComponent, // Dodaj deklarację
+    OrderComponent, // Dodaj deklarację
   ],
   imports: [
     BrowserModule,
