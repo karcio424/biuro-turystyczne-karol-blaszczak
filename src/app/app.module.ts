@@ -7,7 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { WycieczkiComponent } from './wycieczki/wycieczki.component';
 import { WycieczkaDodajComponent } from './wycieczki/wycieczka-dodaj/wycieczka-dodaj.component';
-import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-ocena.component'; // Dodaj import
+import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-ocena.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Dodaj import
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-o
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
