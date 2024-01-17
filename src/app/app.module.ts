@@ -1,29 +1,28 @@
 // app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { CurrencyPipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { WycieczkiComponent } from './wycieczki/wycieczki.component';
-import { WycieczkaDodajComponent } from './wycieczki/wycieczka-dodaj/wycieczka-dodaj.component'; // Importujemy nowy komponent
-
-import { ReactiveFormsModule } from '@angular/forms';
+import { WycieczkaDodajComponent } from './wycieczki/wycieczka-dodaj/wycieczka-dodaj.component';
+import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-ocena.component'; // Dodaj import
 
 @NgModule({
   declarations: [
     AppComponent,
     WycieczkiComponent,
-    WycieczkaDodajComponent // Dodajemy nowy komponent do deklaracji
+    WycieczkaDodajComponent,
+    WycieczkaOcenaComponent, // Dodaj do declarations
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [CurrencyPipe],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

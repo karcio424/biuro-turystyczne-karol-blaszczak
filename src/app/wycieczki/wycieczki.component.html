@@ -40,6 +40,7 @@
       Nikt jeszcze nie zarezerwował miejsca. Bądź pierwszy!
     </p>
     <button (click)="usunWycieczke(wycieczka)">Usuń</button>
+    <app-wycieczka-ocena [ocena]="wycieczka.ocena" (ocenWycieczke)="ocenWycieczke(wycieczka, $event)"></app-wycieczka-ocena>
   </div>
 </div>
 

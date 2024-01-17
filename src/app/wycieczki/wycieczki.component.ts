@@ -3,20 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
-
-interface Wycieczka {
-  id: number;
-  nazwa: string;
-  kraj: string;
-  dataRozpoczecia: string;
-  dataZakonczenia: string;
-  cenaJednostkowa: number;
-  maxIloscMiejsc: number;
-  opis: string;
-  zdjecie: string;
-  dostepneMiejsca: number;
-  cenaWaluta: string;
-}
+import { Wycieczka } from './wycieczki.model'; // Zaimportuj interfejs Wycieczka
 
 @Component({
   selector: 'app-wycieczki',
@@ -32,6 +19,7 @@ export class WycieczkiComponent implements OnInit {
   sumarycznaIloscZarezerwowanych: number = 0;
 
   wycieczkaForm: FormGroup;
+  ocenaForm: FormGroup; // Dodaj formularz dla oceny
 
   constructor(
     private http: HttpClient,
@@ -47,6 +35,10 @@ export class WycieczkiComponent implements OnInit {
       maxIloscMiejsc: ['', Validators.required],
       opis: ['', Validators.required],
       zdjecie: ['', Validators.required],
+    });
+
+    this.ocenaForm = this.fb.group({
+      ocena: null,
     });
   }
 
@@ -156,15 +148,21 @@ export class WycieczkiComponent implements OnInit {
   }
 
   dodajNowaWycieczke(daneWycieczki: any): void {
-    // Logika dodawania nowej wycieczki
-    // Przykład:
     this.wycieczki.push({
       id: this.wycieczki.length + 1,
       ...daneWycieczki,
       dostepneMiejsca: daneWycieczki.maxIloscMiejsc,
-      cenaWaluta: this.formatujCene(daneWycieczki.cenaJednostkowa, this.wybranaWaluta),
+      cenaWaluta: this.formatujCene(
+        daneWycieczki.cenaJednostkowa,
+        this.wybranaWaluta
+      ),
     });
     this.obliczSumarycznaIloscZarezerwowanych();
     this.znajdzNajtanszaINajdrozszaWycieczke();
+  }
+
+  // Dodaj funkcję do obsługi oceny wycieczki
+  ocenWycieczke(wycieczka: Wycieczka, ocena: number): void {
+    wycieczka.ocena = ocena;
   }
 }

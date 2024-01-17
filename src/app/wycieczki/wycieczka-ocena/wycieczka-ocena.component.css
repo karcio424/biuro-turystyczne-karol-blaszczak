@@ -1,0 +1,6 @@
+/* wycieczka-ocena.component.css */
+.gwiazdka {
+  color: gold;
+  font-size: 1.5em;
+  cursor: pointer;
+}
