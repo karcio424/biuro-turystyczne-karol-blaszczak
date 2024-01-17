@@ -3,10 +3,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WycieczkiComponent } from './wycieczki/wycieczki.component'; // Zakładam, że masz taki komponent
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: WycieczkiComponent },
-  // Dodaj inne ścieżki dla innych widoków, jeśli potrzebujesz
+  {path: 'wycieczki', component: WycieczkiComponent},
+  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent}
 ];
 
 @NgModule({

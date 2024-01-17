@@ -1,4 +1,4 @@
-.centered {
+/* .centered {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -6,7 +6,7 @@
   
   main {
     margin: 8em 2em; /* 3/5em if sticky */
-    min-height:80vh
+    /* min-height:80vh
   }
   nav {
     position: fixed;
@@ -24,4 +24,23 @@
     display:flex; 
     flex-direction:column; 
   }
-  
+   */ */
+.centered{
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+main{
+    background-color: rgb(210, 253, 255);;
+    border-radius:10px;
+    color:rgb(0, 0, 0);
+    min-width:300px;
+    max-width:1000px;
+    margin: 3em 2em;
+    padding:1em;
+}
+nav{
+    position:sticky;
+    top:0;
+}
