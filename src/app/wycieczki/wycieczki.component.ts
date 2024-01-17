@@ -153,9 +153,10 @@ export class WycieczkiComponent implements OnInit {
       0
     );
   }
-  
+
   usunWycieczke(wycieczka: any): void {
     // Logika usuwania wycieczki
+
   }
 
   ocenWycieczke(wycieczka: any, ocena: number): void {
