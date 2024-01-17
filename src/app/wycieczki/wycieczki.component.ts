@@ -35,6 +35,8 @@ export class WycieczkiComponent implements OnInit {
       maxIloscMiejsc: ['', Validators.required],
       opis: ['', Validators.required],
       zdjecie: ['', Validators.required],
+      ilosc: 0,
+      selected: false,
     });
 
     this.ocenaForm = this.fb.group({
@@ -58,6 +60,8 @@ export class WycieczkiComponent implements OnInit {
   zarezerwujMiejsce(wycieczka: Wycieczka): void {
     if (wycieczka.dostepneMiejsca > 0) {
       wycieczka.dostepneMiejsca--;
+      wycieczka.ilosc++;
+      wycieczka.selected = true;
       this.znajdzNajtanszaINajdrozszaWycieczke();
       this.obliczSumarycznaIloscZarezerwowanych();
     }
@@ -66,6 +70,10 @@ export class WycieczkiComponent implements OnInit {
   anulujRezerwacje(wycieczka: Wycieczka): void {
     if (wycieczka.dostepneMiejsca < wycieczka.maxIloscMiejsc) {
       wycieczka.dostepneMiejsca++;
+      wycieczka.ilosc--;
+      if (wycieczka.ilosc === 0) {
+        wycieczka.selected = false;
+      }
       this.znajdzNajtanszaINajdrozszaWycieczke();
       this.obliczSumarycznaIloscZarezerwowanych();
     }

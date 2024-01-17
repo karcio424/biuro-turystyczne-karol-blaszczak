@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'biuro-turystyczne-karol-blaszczak';
-  welcomeMessage = 'Witaj na stronie głównej!';
 }
+

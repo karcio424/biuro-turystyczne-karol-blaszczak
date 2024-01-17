@@ -12,5 +12,7 @@ export interface Wycieczka {
   dostepneMiejsca: number;
   cenaWaluta: string;
   ocena: number | null; // Dodaj pole ocena
+  ilosc: number;
+  selected: boolean;
 }
   

@@ -1,0 +1,18 @@
+<!-- cart/cart.component.html -->
+<ng-container *ngIf="cart.length > 0">
+    <div *ngFor="let item of cart; index as idx">
+      <div class="cart-item">
+        <input type="checkbox" [(ngModel)]="item.selected" />
+        <h3>{{ idx + 1 }}. {{ item.nazwa }} - ${{ item.cenaJednostkowa }}</h3>
+        <div>
+          <button (click)="increaseQuantity(item)">+</button>
+          <span>{{ item.ilosc }}</span>
+          <button (click)="decreaseQuantity(item)">-</button>
+        </div>
+        <button (click)="removeFromCart(item)">Usuń</button>
+      </div>
+    </div>
+    <h2>Suma: ${{ getCartSum() | number: '1.0-2' }}</h2>
+    <button (click)="purchase()">Kup Wycieczki</button>
+  </ng-container>
+  

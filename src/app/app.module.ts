@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CartComponent } from './cart/cart.component';
+import { CartOverlayComponent } from './cart/cart-overlay/cart-overlay.component';
 import { WycieczkiComponent } from './wycieczki/wycieczki.component';
 import { WycieczkaDodajComponent } from './wycieczki/wycieczka-dodaj/wycieczka-dodaj.component';
 import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-ocena.component'; // Dodaj import
@@ -20,6 +22,8 @@ import { HomeComponent } from './home/home.component';
     WycieczkiComponent,
     WycieczkaDodajComponent,
     WycieczkaOcenaComponent, // Dodaj do declarations
+    CartComponent,
+    CartOverlayComponent,
   ],
   imports: [
     BrowserModule,
