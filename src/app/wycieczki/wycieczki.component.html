@@ -10,6 +10,8 @@
   <button (click)="zmienWalute('EUR')">EUR (1 EUR = 4.3934 PLN)</button>
 </div>
 
+<app-wycieczka-filtr></app-wycieczka-filtr>
+
 <div *ngFor="let wycieczka of wycieczki" class="wycieczka-container" [ngClass]="{'najtansza': wycieczka === najtanszaWycieczka, 'najdrozsza': wycieczka === najdrozszaWycieczka}">
   <div class="wycieczka-img-container">
     <img [src]="wycieczka.zdjecie" alt="{{ wycieczka.nazwa }}" class="wycieczka-img" />

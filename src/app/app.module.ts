@@ -7,14 +7,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { WycieczkiComponent } from './wycieczki/wycieczki.component';
 import { WycieczkaDodajComponent } from './wycieczki/wycieczka-dodaj/wycieczka-dodaj.component';
-import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-ocena.component'; // Dodaj import
+import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-ocena.component';
+import { WycieczkaFiltrComponent } from './wycieczki/wycieczka-filtr/wycieczka-filtr.component'; // Dodaj import
+import { WycieczkaFiltrService } from './wycieczki/wycieczka-filtr/wycieczka-filtr.service'; // Dodaj import
 
 @NgModule({
   declarations: [
     AppComponent,
     WycieczkiComponent,
     WycieczkaDodajComponent,
-    WycieczkaOcenaComponent, // Dodaj do declarations
+    WycieczkaOcenaComponent,
+    WycieczkaFiltrComponent, // Dodaj deklarację
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-o
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [WycieczkaFiltrService], // Dodaj serwis do providers
   bootstrap: [AppComponent],
 })
 export class AppModule {}
