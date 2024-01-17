@@ -4,24 +4,30 @@
     <select id="lokalizacja" formControlName="lokalizacja">
       <!-- opcje lokalizacji -->
     </select>
-  
+    
+    <br>
+    
     <label for="cenaOd">Cena od:</label>
     <input type="number" id="cenaOd" formControlName="cenaOd" />
-  
     <label for="cenaDo">Cena do:</label>
     <input type="number" id="cenaDo" formControlName="cenaDo" />
-  
+    
+    <br>
+    
     <label for="dataOd">Data od:</label>
     <input type="date" id="dataOd" formControlName="dataOd" />
-  
     <label for="dataDo">Data do:</label>
     <input type="date" id="dataDo" formControlName="dataDo" />
-  
+    
+    <br>
+    
     <label for="ocena">Ocena:</label>
     <select id="ocena" formControlName="ocena">
       <!-- opcje oceny -->
     </select>
   
+    <br>
+
     <button (click)="applyFiltr()">Filtruj</button>
   </div>
   

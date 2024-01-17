@@ -5,25 +5,33 @@
   
     <label for="kraj">Kraj:</label>
     <input type="text" id="kraj" formControlName="kraj" />
-  
+    
+    <br>
+    
     <label for="dataRozpoczecia">Data rozpoczęcia:</label>
     <input type="date" id="dataRozpoczecia" formControlName="dataRozpoczecia" />
   
     <label for="dataZakonczenia">Data zakończenia:</label>
     <input type="date" id="dataZakonczenia" formControlName="dataZakonczenia" />
-  
+    
+    <br>
+    
     <label for="cenaJednostkowa">Cena jednostkowa:</label>
     <input type="number" id="cenaJednostkowa" formControlName="cenaJednostkowa" />
   
     <label for="maxIloscMiejsc">Maksymalna ilość miejsc:</label>
     <input type="number" id="maxIloscMiejsc" formControlName="maxIloscMiejsc" />
-  
+    
+    <br>
+    
     <label for="opis">Opis:</label>
     <textarea id="opis" formControlName="opis"></textarea>
   
     <label for="zdjecie">Zdjęcie (URL):</label>
     <input type="text" id="zdjecie" formControlName="zdjecie" />
-  
+    
+    <br>
+    
     <button type="submit" [disabled]="!wycieczkaForm.valid">Dodaj wycieczkę</button>
   </form>
   
