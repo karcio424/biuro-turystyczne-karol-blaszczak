@@ -1,4 +1,4 @@
-// wycieczka-dodaj.component.ts
+// app/wycieczki/wycieczka-dodaj/wycieczka-dodaj.component.html
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 

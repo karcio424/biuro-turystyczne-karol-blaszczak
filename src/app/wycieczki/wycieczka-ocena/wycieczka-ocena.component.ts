@@ -1,4 +1,4 @@
-// wycieczka-ocena.component.ts
+// app/wycieczki/wycieczka-ocena/wycieczka-ocena.component.ts
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({

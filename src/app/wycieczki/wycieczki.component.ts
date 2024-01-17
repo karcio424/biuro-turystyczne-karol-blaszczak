@@ -1,9 +1,10 @@
-// wycieczki.component.ts
+// app/wycieczki/wycieczki.component.ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
-import { Wycieczka } from './wycieczki.model'; // Zaimportuj interfejs Wycieczka
+import { Wycieczka } from './wycieczki.model';
+import { FilterService } from './filtr-wycieczek/filtr-wycieczek.service';  // Importuj serwis filtrów
 
 @Component({
   selector: 'app-wycieczki',
@@ -19,12 +20,13 @@ export class WycieczkiComponent implements OnInit {
   sumarycznaIloscZarezerwowanych: number = 0;
 
   wycieczkaForm: FormGroup;
-  ocenaForm: FormGroup; // Dodaj formularz dla oceny
+  ocenaForm: FormGroup;
 
   constructor(
     private http: HttpClient,
     private currencyPipe: CurrencyPipe,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private filterService: FilterService  // Dodaj serwis filtrów do konstruktora
   ) {
     this.wycieczkaForm = this.fb.group({
       nazwa: ['', Validators.required],
@@ -52,6 +54,13 @@ export class WycieczkiComponent implements OnInit {
         cenaWaluta: this.formatujCene(wycieczka.cenaJednostkowa, 'PLN'),
       }));
 
+      this.znajdzNajtanszaINajdrozszaWycieczke();
+      this.obliczSumarycznaIloscZarezerwowanych();
+    });
+
+    // Subskrybuj zmiany w serwisie filtrów
+    this.filterService.filteredTrips$.subscribe((filteredTrips) => {
+      this.wycieczki = filteredTrips;
       this.znajdzNajtanszaINajdrozszaWycieczke();
       this.obliczSumarycznaIloscZarezerwowanych();
     });
@@ -140,37 +149,20 @@ export class WycieczkiComponent implements OnInit {
 
   obliczSumarycznaIloscZarezerwowanych(): void {
     this.sumarycznaIloscZarezerwowanych = this.wycieczki.reduce(
-      (sum, wycieczka) =>
-        sum + (wycieczka.maxIloscMiejsc - wycieczka.dostepneMiejsca),
+      (sum, wycieczka) => sum + wycieczka.ilosc,
       0
     );
   }
-
-  usunWycieczke(wycieczka: Wycieczka): void {
-    const index = this.wycieczki.indexOf(wycieczka);
-    if (index !== -1) {
-      this.wycieczki.splice(index, 1);
-      this.obliczSumarycznaIloscZarezerwowanych();
-      this.znajdzNajtanszaINajdrozszaWycieczke();
-    }
+  
+  usunWycieczke(wycieczka: any): void {
+    // Logika usuwania wycieczki
   }
 
-  dodajNowaWycieczke(daneWycieczki: any): void {
-    this.wycieczki.push({
-      id: this.wycieczki.length + 1,
-      ...daneWycieczki,
-      dostepneMiejsca: daneWycieczki.maxIloscMiejsc,
-      cenaWaluta: this.formatujCene(
-        daneWycieczki.cenaJednostkowa,
-        this.wybranaWaluta
-      ),
-    });
-    this.obliczSumarycznaIloscZarezerwowanych();
-    this.znajdzNajtanszaINajdrozszaWycieczke();
+  ocenWycieczke(wycieczka: any, ocena: number): void {
+    // Logika oceniania wycieczki
   }
 
-  // Dodaj funkcję do obsługi oceny wycieczki
-  ocenWycieczke(wycieczka: Wycieczka, ocena: number): void {
-    wycieczka.ocena = ocena;
+  dodajNowaWycieczke(nowaWycieczka: any): void {
+    // Logika dodawania nowej wycieczki
   }
 }

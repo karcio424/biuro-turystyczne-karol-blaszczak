@@ -1,3 +1,4 @@
+// app/home/home.component.ts
 import { Component, OnInit } from '@angular/core';
 
 @Component({
