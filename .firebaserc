@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tanie-zwiedzanie": {
+      "hosting": {
+        "tanie-zwiedzanie": [
+          "tanie-zwiedzanie"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tanie-zwiedzanie"
+  }
+}

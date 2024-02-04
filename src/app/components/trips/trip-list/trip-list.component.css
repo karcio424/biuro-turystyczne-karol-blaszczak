@@ -1,0 +1,65 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 16px;
+  padding: 5px;
+}
+
+.card {
+  min-width: 600px;
+  flex: 1;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.circular-image-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.circular-image {
+  margin: 10px;
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 8px 8px 26px 0px rgba(66, 68, 90, 0.35);
+}
+
+.circular-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  cursor: pointer;
+}
+
+.trip-name {
+  cursor: pointer;
+}
+
+.trip-name:hover {
+  color: rgb(173, 173, 173);
+}
+
+.reservation-button:hover {
+  color: rgb(173, 173, 173);
+}
+
+.menu-item,
+.form-select {
+  justify-content: center;
+  padding: 1em;
+  background-color: rgb(104, 48, 48);
+  margin: 0.4em;
+  color: #eeeeee;
+  -webkit-box-shadow: 0px 0px 11px -5px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 11px -5px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 11px -5px rgba(66, 68, 90, 1);
+  transition: 300ms ease all;
+}
+
+#pageSizeSelect {
+  width: 100px;
+}

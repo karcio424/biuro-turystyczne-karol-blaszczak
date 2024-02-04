@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "name": "Aktywne Tatry",
+    "destinationCountry": "Polska",
+    "startDate": "2024-07-01",
+    "endDate": "2024-07-10",
+    "price": 2500,
+    "maxSpots": 20,
+    "takenSpots": 0,
+    "description": "Wspaniała wycieczka po polskich górach.",
+    "imageRef": "/assets/img/wycieczka1.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Śladami królów Polski",
+    "destinationCountry": "Polska",
+    "startDate": "2024-07-23",
+    "endDate": "2024-07-27",
+    "price": 1800,
+    "maxSpots": 20,
+    "takenSpots": 0,
+    "description": "Wycieczka po dawnych stolicach Polski.",
+    "imageRef": "/assets/img/wycieczka2.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Magiczne Wzgórza Irlandii",
+    "destinationCountry": "Irlandia",
+    "startDate": "2024-08-15",
+    "endDate": "2024-08-25",
+    "price": 3200,
+    "maxSpots": 15,
+    "takenSpots": 0,
+    "description": "Podróż przez malownicze destinationCountryobrazy Irlandii.",
+    "imageRef": "/assets/img/wycieczka3.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Eksploracja Machu Picchu",
+    "destinationCountry": "Peru",
+    "startDate": "2024-09-05",
+    "endDate": "2024-09-15",
+    "price": 4800,
+    "maxSpots": 15,
+    "takenSpots": 0,
+    "description": "Wyprawa do mistycznego Machu Picchu w Peru.",
+    "imageRef": "/assets/img/wycieczka4.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Safari w Serengeti",
+    "destinationCountry": "Tanzania",
+    "startDate": "2024-10-01",
+    "endDate": "2024-10-10",
+    "price": 6200,
+    "maxSpots": 12,
+    "takenSpots": 0,
+    "description": "Niezapomniane safari w Parku Narodowym Serengeti.",
+    "imageRef": "/assets/img/wycieczka5.jpg"
+  },
+  {
+    "id": "6",
+    "name": "Magiczne Plaże Bora Bora",
+    "destinationCountry": "Polinezja Francuska",
+    "startDate": "2024-11-05",
+    "endDate": "2024-11-15",
+    "price": 9800,
+    "maxSpots": 10,
+    "takenSpots": 0,
+    "description": "Relaks na rajskich plażach Bora Bora.",
+    "imageRef": "/assets/img/wycieczka6.jpg"
+  },
+  {
+    "id": "7",
+    "name": "Wspaniałe Miasta Europy",
+    "destinationCountry": "Włochy, Francja, Hiszpania",
+    "startDate": "2025-03-01",
+    "endDate": "2025-03-15",
+    "price": 5400,
+    "maxSpots": 18,
+    "takenSpots": 0,
+    "description": "Zwiedzanie najpiękniejszych miast europejskich.",
+    "imageRef": "/assets/img/wycieczka7.jpg"
+  },
+  {
+    "id": "8",
+    "name": "Tajemnicze Wąwozy Kolorado",
+    "destinationCountry": "USA",
+    "startDate": "2025-04-10",
+    "endDate": "2025-04-20",
+    "price": 3200,
+    "maxSpots": 15,
+    "takenSpots": 0,
+    "description": "Przygoda w malowniczych wąwozach Kolorado.",
+    "imageRef": "/assets/img/wycieczka8.jpg"
+  },
+  {
+    "id": "9",
+    "name": "Egzotyczna Wyprawa do Tajlandii",
+    "destinationCountry": "Tajlandia",
+    "startDate": "2025-05-05",
+    "endDate": "2025-05-15",
+    "price": 4200,
+    "maxSpots": 16,
+    "takenSpots": 0,
+    "description": "Odkrywanie uroków egzotycznej Tajlandii.",
+    "imageRef": "/assets/img/wycieczka9.jpg"
+  },
+  {
+    "id": "10",
+    "name": "Zimowa Przygoda w Alpach",
+    "destinationCountry": "Austria, Szwajcaria, Włochy",
+    "startDate": "2025-01-15",
+    "endDate": "2025-01-25",
+    "price": 3200,
+    "maxSpots": 14,
+    "takenSpots": 0,
+    "description": "Narty i relaks w malowniczych alpejskich regionach.",
+    "imageRef": "/assets/img/wycieczka10.jpg"
+  }
+]

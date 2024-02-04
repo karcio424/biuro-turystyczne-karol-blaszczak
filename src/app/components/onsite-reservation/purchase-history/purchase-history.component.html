@@ -1,0 +1,25 @@
+<app-history-filter></app-history-filter>
+<div *ngIf="userReservations.length; else listEmpty" class="container mt-5">
+	<div *ngFor="let reservation of getFilteredReservations()">
+		<div class="card trip-item">
+			<div class="card-body trip-name-wrapper" *ngIf="getTripById(reservation.tripId); else tripNotFound">
+				<h5 class="card-title trip-name" (click)="viewDetails(getTripById(reservation.tripId)?.id)">
+					{{ getTripById(reservation.tripId)?.name | uppercase }}
+				</h5>
+			</div>
+			<ul class="list-group list-group-flush" *ngIf="getTripById(reservation.tripId)">
+				<li class="list-group-item"> Kraj docelowy: {{ getTripById(reservation.tripId)?.destinationCountry | uppercase }}
+				</li>
+				<li class="list-group-item"> Termin: {{ getTripById(reservation.tripId)?.startDate | date : "d.M.yyyy" }} - {{ getTripById(reservation.tripId)?.endDate | date : "d.M.yyyy" }}
+				</li>
+				<li class="list-group-item"> Ilość zakupionych miejsc: {{ reservation.count }}</li>
+				<li class="list-group-item"> Data zakupu wycieczki: {{ reservation.purchaseDate | date : "medium" }}
+				</li>
+			</ul>
+			<ng-template #tripNotFound>Wycieczka o ID: {{ reservation.tripId }} nie została znaleziona. Skontaktuj się z biurem obsługi klienta.</ng-template>
+		</div>
+	</div>
+</div>
+<ng-template #listEmpty>
+	<p>Nie zakupiono żadnej wycieczki!</p>
+</ng-template>

@@ -1,0 +1,8 @@
+<div class="reservation-box">
+	<div class="reservation-count-box" [ngStyle]="{
+      'background-color': reservationsCount < 10 ? 'red' : 'green'
+    }"> Aktualnie zarezerwowano: {{ reservationsCount }} wycieczek. </div>
+	<div class="reservation-sum-box">
+		{{ reservationsValue | currencyPipe : currency }}
+	</div>
+</div>

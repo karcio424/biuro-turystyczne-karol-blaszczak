@@ -1,0 +1,82 @@
+<div class="container mt-5">
+	<form [formGroup]="tripForm" (ngSubmit)="addTrip()" class="trip-form">
+		<div class="form-group">
+			<label for="id">Identyfikator:</label>
+			<input type="text" id="id" formControlName="id" class="form-control" />
+			<div *ngIf="tripForm.get('id')?.hasError('pattern')" class="error-message"> Identyfikator może się składać jedynie z małych liter, cyfr oraz znaku '-'; </div>
+		</div>
+		<div class="form-group">
+			<label for="name">Nazwa*:</label>
+			<input type="text" id="name" formControlName="name" class="form-control" />
+			<div *ngIf="
+          tripForm.get('name')?.hasError('required') &&
+          tripForm.get('name')?.touched
+        " class="error-message"> Podanie nazwy wycieczki jest wymagane. </div>
+		</div>
+		<div class="form-group">
+			<label for="destinationCountry">Kraj docelowy*:</label>
+			<input type="text" id="destinationCountry" formControlName="destinationCountry" class="form-control" />
+			<div *ngIf="
+          tripForm.get('destinationCountry')?.hasError('required') &&
+          tripForm?.get('destinationCountry')?.touched
+        " class="error-message"> Podanie kraju docelowego jest wymagane. </div>
+		</div>
+		<div class="form-group">
+			<label for="startDate">Data początkowa*:</label>
+			<input type="date" id="startDate" formControlName="startDate" class="form-control" />
+			<div *ngIf="
+          tripForm.get('startDate')?.hasError('required') &&
+          tripForm.get('startDate')?.touched
+        " class="error-message"> Podanie pełnego zakresu dat jest wymagane. </div>
+		</div>
+		<div class="form-group">
+			<label for="endDate">Data końcowa*:</label>
+			<input type="date" id="endDate" formControlName="endDate" class="form-control" />
+			<div *ngIf="
+          tripForm.get('endDate')?.hasError('required') &&
+          tripForm.get('endDate')?.touched
+        " class="error-message"> Podanie pełnego zakresu dat jest wymagane. </div>
+		</div>
+		<div class="form-group">
+			<label for="price">Cena ({{ currency }})*:</label>
+			<input type="number" id="price" formControlName="price" class="form-control" />
+			<div *ngIf="
+          tripForm.get('price')?.hasError('required') &&
+          tripForm.get('price')?.touched
+        " class="error-message"> Podanie ceny wycieczki jest wymagane. </div>
+			<div *ngIf="
+          tripForm.get('price')?.hasError('min') &&
+          tripForm.get('price')?.touched
+        " class="error-message"> Cena wycieczki musi być wyższa od 0 {{ currency }}. </div>
+		</div>
+		<div class="form-group">
+			<label for="maxSpots">Ilość miejsc na wycieczce*:</label>
+			<input type="number" id="maxSpots" formControlName="maxSpots" class="form-control" />
+			<div *ngIf="
+          tripForm.get('maxSpots')?.hasError('required') &&
+          tripForm.get('maxSpots')?.touched
+        " class="error-message"> Podanie ilości miejsc na wycieczce jest wymagane. </div>
+			<div *ngIf="
+          tripForm.get('maxSpots')?.hasError('min') &&
+          tripForm.get('maxSpots')?.touched
+        " class="error-message"> Ilość miejsc na wycieczce musi być >= 1. </div>
+		</div>
+		<div class="form-group">
+			<label for="description">Opis*:</label>
+			<textarea id="description" formControlName="description" class="form-control"></textarea>
+			<div *ngIf="
+          tripForm.get('description')?.hasError('required') &&
+          tripForm.get('description')?.touched
+        " class="error-message"> Podanie opisu jest wymagane. </div>
+		</div>
+		<div class="form-group">
+			<label for="imageRef">Odnośnik do zdjęcia*:</label>
+			<input type="text" id="imageRef" formControlName="imageRef" class="form-control" />
+			<div *ngIf="
+          tripForm.get('imageRef')?.hasError('required') &&
+          tripForm.get('imageRef')?.touched
+        " class="error-message"> Odnośnik do zdjęcia jest wymagany. </div>
+		</div>
+		<button type="submit" [disabled]="tripForm.invalid" class="btn btn-primary"> Dodaj wycieczkę </button>
+	</form>
+</div>

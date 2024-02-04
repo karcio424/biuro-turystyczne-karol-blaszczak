@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
   --colorBackground: rgb(255, 255, 255);
-  --colorBackground2: rgb(68, 68, 68);
-  --colorBackgroundLittle: rgb(32,32,32);
+  --colorBackground2: rgb(190, 253, 255);
+  --colorBackgroundLittle: rgb(32, 32, 32);
   --colorAccent: rgb(218, 0, 55);
   --colorAccent2: rgb(221, 4, 58);
-  --colorPrimary: rgb(237, 237, 237);
+  --colorPrimary: rgb(0, 247, 255);
 }
 
 *,
@@ -19,8 +19,7 @@
 }
 
 html {
-  /* font-family: 'Raleway', sans-serif; */
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,7 +32,7 @@ html {
 body {
   background-color: var(--colorBackground);
   color: var(--colorPrimary);
-  width:100%;
+  width: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -101,40 +100,37 @@ select {
   }
 }
 
-
-.accented{
-  color:var(--colorAccent);
+.accented {
+  color: var(--colorAccent);
   text-shadow: 0px 0px 0.2em var(--colorAccent);
   transition: 300ms ease all;
 }
 
-.accented:hover{
+.accented:hover {
   text-shadow: 0px 0px 1em var(--colorAccent);
   transition: 300ms ease all;
 }
 
-.accented-btn{
-  color:var(--colorAccent);
+.accented-btn {
+  color: var(--colorAccent);
   transition: 300ms ease all;
 }
-.accented-btn:hover{
-  color:var(--colorAccent);
+.accented-btn:hover {
+  color: var(--colorAccent);
   transition: 300ms ease all;
 }
 
-.clickable{
-  cursor:pointer;
+.clickable {
+  cursor: pointer;
 }
 
-
-a{
+a {
   text-decoration: inherit;
 }
 
-
 .button-accent {
   appearance: none;
-  margin:0.1em;
+  margin: 0.1em;
   background-color: transparent;
   border: 2px solid var(--colorPrimary);
   background-color: var(--colorBackground);
@@ -146,12 +142,12 @@ a{
   min-height: 60px;
   font-weight: bold;
   min-width: 0;
-  width:fit-content;
+  width: fit-content;
   outline: none;
   padding: 16px 24px;
   text-align: center;
   text-decoration: none;
-  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -170,18 +166,18 @@ a{
   transform: translateY(-2px);
 }
 
-.button-accent-green{
+.button-accent-green {
   border: 2px solid var(--colorPrimary);
   color: var(--colorPrimary);
 }
 
-.button-accent-green:hover{
+.button-accent-green:hover {
   background-color: rgb(45, 182, 45);
   box-shadow: rgba(45, 182, 45, 0.5) 0 0px 30px;
   border: 2px solid rgb(45, 182, 45);
 }
 
-.button-accent-active{
+.button-accent-active {
   color: #fff;
   background-color: var(--colorAccent);
   border: 2px solid var(--colorAccent);
@@ -194,16 +190,15 @@ a{
   transform: translateY(0);
 }
 
-.button-disabled:hover{
-  cursor:not-allowed;
+.button-disabled:hover {
+  cursor: not-allowed;
   background-color: rgb(255, 0, 0);
   box-shadow: rgba(255, 0, 0, 0.5) 0 0px 30px;
   border: 2px solid rgb(255, 0, 0);
 }
 
-
 @keyframes fade {
-  0% {
+  80% {
     opacity: 0;
   }
   100% {
@@ -212,22 +207,22 @@ a{
 }
 
 router-outlet + * {
-  display: block;  /* Change display inline to block */
+  display: block;
   animation: fade 1s;
 }
 
-input,textarea{
+input,
+textarea {
   background-color: var(--colorBackground2);
   outline: none;
-  border:3px solid rgba(218, 0, 55,0);
-  color:var(--colorPrimary);
+  border: 3px solid rgba(218, 0, 55, 0);
+  color: var(--colorPrimary);
   font-weight: 700;
   transition: 300ms ease all;
-
 }
 
-input:focus{
+input:focus {
   outline: none;
-  border:3px solid rgba(218, 0, 55,1);
+  border: 3px solid rgba(218, 0, 55, 1);
   transition: 300ms ease all;
 }

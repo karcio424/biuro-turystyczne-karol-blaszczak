@@ -1,0 +1,23 @@
+.title-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.manage-button {
+  color: gray;
+  border-color: gray;
+  min-width: 170px;
+}
+
+.manage-button:hover {
+  color: white;
+  background-color: gray;
+}
+
+.manage-buttons {
+  min-width: 300px;
+  margin-bottom: 10px;
+}

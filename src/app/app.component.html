@@ -1,11 +1,46 @@
-<!-- app/app.component.html -->
-<nav>
-    <app-navbar></app-navbar>
-  </nav>
-  
-  <div class="centered">
-    <main>
-      <router-outlet></router-outlet>
-      </main>
-  </div>
-  
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+	<div class="container-fluid">
+		<div class="d-flex align-items-center">
+			<a routerLink="/">
+				<div class="logo">
+					<h1>Tanie Zwiedzanie</h1>
+				</div>
+			</a>
+			<app-reservation-sum class="navbar-text"></app-reservation-sum>
+		</div>
+		<div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+			<ul class="menu-items">
+				<div class="nav-item">
+					<a class="nav-link" routerLink="/" routerLinkActive="active" (click)="isMenuCollapsed = true" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" routerLink="/trip" routerLinkActive="active" (click)="isMenuCollapsed = true" [routerLinkActiveOptions]="{ exact: true }">Wycieczki</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" routerLink="/cart" routerLinkActive="active" (click)="isMenuCollapsed = true" [routerLinkActiveOptions]="{ exact: true }">Koszyk</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" routerLink="/trip/bought" routerLinkActive="active" (click)="isMenuCollapsed = true" [routerLinkActiveOptions]="{ exact: true }">Twoje zamówienia</a>
+				</div>
+				<div class="nav-item" *ngIf="user">
+					<a class="nav-link" routerLink="/trip/add" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dodaj wycieczkę</a>
+				</div>
+				<div class="nav-item" *ngIf="user === null">
+					<a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Zaloguj</a>
+				</div>
+				<div class="nav-item" *ngIf="user === null">
+					<a class="nav-link" routerLink="/register" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Zarejestruj</a>
+				</div>
+				<div class="nav-user-item" *ngIf="user"> Zalogowano jako: {{ user.email }}
+				</div>
+				<div class="nav-item" *ngIf="user">
+					<a class="nav-link" routerLink="/logout" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Wyloguj</a>
+				</div>
+				<div>
+					<app-currency-selector></app-currency-selector>
+				</div>
+			</ul>
+		</div>
+	</div>
+</nav>
+<router-outlet></router-outlet>

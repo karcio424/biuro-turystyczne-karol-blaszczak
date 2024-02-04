@@ -1,0 +1,13 @@
+<div class="container mt-4">
+	<form class="form-inline">
+		<div class="btn-group" role="group">
+			<input type="checkbox" class="btn-check" id="past" autocomplete="off" [(ngModel)]="historyFilters.past" name="past" />
+			<label class="btn btn-outline-primary" for="past">Historyczne</label>
+			<input type="checkbox" class="btn-check" id="active" autocomplete="off" [(ngModel)]="historyFilters.active" name="active" />
+			<label class="btn btn-outline-primary" for="active">Aktywne</label>
+			<input type="checkbox" class="btn-check" id="future" autocomplete="off" [(ngModel)]="historyFilters.future" name="future" />
+			<label class="btn btn-outline-primary" for="future">Nadchodzące</label>
+		</div>
+		<button type="button" class="btn btn-secondary" (click)="clearFilters()"> Wyczyść filtrowanie </button>
+	</form>
+</div>
