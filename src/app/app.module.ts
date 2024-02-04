@@ -1,33 +1,34 @@
-// app.module.ts
+// app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { WycieczkiComponent } from './wycieczki/wycieczki.component';
 import { WycieczkaDodajComponent } from './wycieczki/wycieczka-dodaj/wycieczka-dodaj.component';
-import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-ocena.component';
-import { WycieczkaFiltrComponent } from './wycieczki/wycieczka-filtr/wycieczka-filtr.component'; // Dodaj import
-import { WycieczkaFiltrService } from './wycieczki/wycieczka-filtr/wycieczka-filtr.service'; // Dodaj import
-import { OrderComponent } from './order/order.component'; // Dodaj import
+import { WycieczkaOcenaComponent } from './wycieczki/wycieczka-ocena/wycieczka-ocena.component'; // Dodaj import
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    NavbarComponent,
     WycieczkiComponent,
     WycieczkaDodajComponent,
-    WycieczkaOcenaComponent,
-    WycieczkaFiltrComponent, // Dodaj deklarację
-    OrderComponent, // Dodaj deklarację
+    WycieczkaOcenaComponent, // Dodaj do declarations
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
-  providers: [WycieczkaFiltrService], // Dodaj serwis do providers
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

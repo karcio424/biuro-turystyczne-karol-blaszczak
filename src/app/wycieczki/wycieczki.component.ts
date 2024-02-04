@@ -1,10 +1,10 @@
-// wycieczki.component.ts
+// app/wycieczki/wycieczki.component.ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
 import { Wycieczka } from './wycieczki.model';
-import { WycieczkaFiltrService } from './wycieczka-filtr/wycieczka-filtr.service';
+import { FilterService } from './filtr-wycieczek/filtr-wycieczek.service';  // Importuj serwis filtrów
 
 @Component({
   selector: 'app-wycieczki',
@@ -26,7 +26,7 @@ export class WycieczkiComponent implements OnInit {
     private http: HttpClient,
     private currencyPipe: CurrencyPipe,
     private fb: FormBuilder,
-    private filtrService: WycieczkaFiltrService
+    private filterService: FilterService  // Dodaj serwis filtrów do konstruktora
   ) {
     this.wycieczkaForm = this.fb.group({
       nazwa: ['', Validators.required],
@@ -37,6 +37,8 @@ export class WycieczkiComponent implements OnInit {
       maxIloscMiejsc: ['', Validators.required],
       opis: ['', Validators.required],
       zdjecie: ['', Validators.required],
+      ilosc: 0,
+      selected: false,
     });
 
     this.ocenaForm = this.fb.group({
@@ -56,14 +58,19 @@ export class WycieczkiComponent implements OnInit {
       this.obliczSumarycznaIloscZarezerwowanych();
     });
 
-    this.filtrService.aktualnyFiltr.subscribe((filtr) => {
-      this.applyFiltr(filtr);
+    // Subskrybuj zmiany w serwisie filtrów
+    this.filterService.filteredTrips$.subscribe((filteredTrips) => {
+      this.wycieczki = filteredTrips;
+      this.znajdzNajtanszaINajdrozszaWycieczke();
+      this.obliczSumarycznaIloscZarezerwowanych();
     });
   }
 
   zarezerwujMiejsce(wycieczka: Wycieczka): void {
     if (wycieczka.dostepneMiejsca > 0) {
       wycieczka.dostepneMiejsca--;
+      wycieczka.ilosc++;
+      wycieczka.selected = true;
       this.znajdzNajtanszaINajdrozszaWycieczke();
       this.obliczSumarycznaIloscZarezerwowanych();
     }
@@ -72,6 +79,10 @@ export class WycieczkiComponent implements OnInit {
   anulujRezerwacje(wycieczka: Wycieczka): void {
     if (wycieczka.dostepneMiejsca < wycieczka.maxIloscMiejsc) {
       wycieczka.dostepneMiejsca++;
+      wycieczka.ilosc--;
+      if (wycieczka.ilosc === 0) {
+        wycieczka.selected = false;
+      }
       this.znajdzNajtanszaINajdrozszaWycieczke();
       this.obliczSumarycznaIloscZarezerwowanych();
     }
@@ -138,80 +149,21 @@ export class WycieczkiComponent implements OnInit {
 
   obliczSumarycznaIloscZarezerwowanych(): void {
     this.sumarycznaIloscZarezerwowanych = this.wycieczki.reduce(
-      (sum, wycieczka) =>
-        sum + (wycieczka.maxIloscMiejsc - wycieczka.dostepneMiejsca),
+      (sum, wycieczka) => sum + wycieczka.ilosc,
       0
     );
   }
 
-  usunWycieczke(wycieczka: Wycieczka): void {
-    const index = this.wycieczki.indexOf(wycieczka);
-    if (index !== -1) {
-      this.wycieczki.splice(index, 1);
-      this.obliczSumarycznaIloscZarezerwowanych();
-      this.znajdzNajtanszaINajdrozszaWycieczke();
-    }
+  usunWycieczke(wycieczka: any): void {
+    // Logika usuwania wycieczki
+
   }
 
-  dodajNowaWycieczke(daneWycieczki: any): void {
-    this.wycieczki.push({
-      id: this.wycieczki.length + 1,
-      ...daneWycieczki,
-      dostepneMiejsca: daneWycieczki.maxIloscMiejsc,
-      cenaWaluta: this.formatujCene(
-        daneWycieczki.cenaJednostkowa,
-        this.wybranaWaluta
-      ),
-    });
-    this.obliczSumarycznaIloscZarezerwowanych();
-    this.znajdzNajtanszaINajdrozszaWycieczke();
+  ocenWycieczke(wycieczka: any, ocena: number): void {
+    // Logika oceniania wycieczki
   }
 
-  ocenWycieczke(wycieczka: Wycieczka, ocena: number): void {
-    wycieczka.ocena = ocena;
-  }
-
-  applyFiltr(filtr: any): void {
-    // Tutaj należy zaimplementować logikę filtracji na podstawie otrzymanego obiektu filtru
-    // Wartości z filtru dostępne są w filtr.lokalizacje, filtr.cenaMin, filtr.cenaMax, filtr.dataMin, filtr.dataMax, filtr.oceny
-    // Aby zastosować filtrację, należy odpowiednio modyfikować this.wycieczki
-    // Poniżej znajdziesz przykładową logikę, ale wymaga ona dostosowania do rzeczywistych danych w Twojej aplikacji
-
-    this.wycieczki = this.wycieczki.filter((wycieczka) => {
-      // Filtruj lokalizacje
-      if (filtr.lokalizacje && filtr.lokalizacje.length > 0) {
-        if (!filtr.lokalizacje.includes(wycieczka.kraj)) {
-          return false;
-        }
-      }
-
-      // Filtruj cenę
-      if (filtr.cenaMin && wycieczka.cenaJednostkowa < filtr.cenaMin) {
-        return false;
-      }
-      if (filtr.cenaMax && wycieczka.cenaJednostkowa > filtr.cenaMax) {
-        return false;
-      }
-
-      // Filtruj datę
-      if (filtr.dataMin && new Date(wycieczka.dataRozpoczecia) < filtr.dataMin) {
-        return false;
-      }
-      if (filtr.dataMax && new Date(wycieczka.dataZakonczenia) > filtr.dataMax) {
-        return false;
-      }
-
-      // Filtruj ocenę
-      if (filtr.oceny && filtr.oceny.length > 0 && wycieczka.ocena) {
-        if (!filtr.oceny.includes(wycieczka.ocena)) {
-          return false;
-        }
-      }
-
-      return true;
-    });
-
-    this.znajdzNajtanszaINajdrozszaWycieczke();
-    this.obliczSumarycznaIloscZarezerwowanych();
+  dodajNowaWycieczke(nowaWycieczka: any): void {
+    // Logika dodawania nowej wycieczki
   }
 }

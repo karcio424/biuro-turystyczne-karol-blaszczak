@@ -1,3 +1,11 @@
-<!-- app.component.html -->
-<app-wycieczki></app-wycieczki>
-<app-order [iloscWycieczek]="iloscWycieczek" [sumaZamowienia]="sumaZamowienia"></app-order>
+<!-- app/app.component.html -->
+<nav>
+    <app-navbar></app-navbar>
+  </nav>
+  
+  <div class="centered">
+    <main>
+      <router-outlet></router-outlet>
+      </main>
+  </div>
+  
