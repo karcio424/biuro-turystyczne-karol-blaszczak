@@ -1,0 +1,25 @@
+<div>
+    <h2>List of Users</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>UID</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.uid }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <button *ngIf="!isBanned(user)" (click)="banUser(user.uid)">Ban User</button>
+            <button *ngIf="isBanned(user)" (click)="unbanUser(user.uid)">Unban User</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

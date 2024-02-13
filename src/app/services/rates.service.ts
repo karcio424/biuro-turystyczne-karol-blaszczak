@@ -2,44 +2,39 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { ITrip } from "../models/trip.model";
-import { Rating as Rate } from "../models/rate.model";
+import { Rating } from "../models/rate.model";
+import firebase from "firebase/compat/app"; // Dodaj import firebase
 
 @Injectable({
   providedIn: "root",
 })
 export class RatesService {
-  constructor(private store: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) {}
 
-  getUserRate(userEmail: string, tripId: string): Observable<Rate | undefined> {
-    const userRating = this.store
+  getUserRate(userEmail: string, tripId: string): Observable<Rating | undefined> {
+    return this.firestore
       .collection<ITrip>("trips")
       .doc(tripId)
-      .collection<Rate>("rates")
-      .doc(userEmail);
-
-    return userRating.valueChanges();
+      .collection<Rating>("rates")
+      .doc(userEmail)
+      .valueChanges();
   }
 
-  setUserRate(
-    userEmail: string,
-    tripId: string,
-    rating: number
-  ): Promise<void> {
-    const userRating = this.store
+  setUserRate(userEmail: string, tripId: string, rating: number): Promise<void> {
+    const rateRef = this.firestore
       .collection<ITrip>("trips")
       .doc(tripId)
-      .collection<Rate>("rates")
+      .collection<Rating>("rates")
       .doc(userEmail);
 
-    return userRating.set({ userId: userEmail, rate: rating });
+    return rateRef.set({ userId: userEmail, rate: rating });
   }
 
-  getTripRates(tripId: string): Observable<Rate[]> {
-    const ratings = this.store
+  getTripRates(tripId: string): Observable<Rating[]> {
+    return this.firestore
       .collection<ITrip>("trips")
       .doc(tripId)
-      .collection<Rate>("rates");
-
-    return ratings.valueChanges();
+      .collection<Rating>("rates")
+      .valueChanges();
   }
 }

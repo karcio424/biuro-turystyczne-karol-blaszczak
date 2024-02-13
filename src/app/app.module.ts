@@ -5,9 +5,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "../environments/environment";
+import { UserlistComponent } from "./components/userlist/userlist.component";
 
 @NgModule({
-  declarations: [],
+  declarations: [UserlistComponent],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserModule,

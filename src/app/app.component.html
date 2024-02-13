@@ -16,14 +16,17 @@
 				<div class="nav-item">
 					<a class="nav-link" routerLink="/trip" routerLinkActive="active" (click)="isMenuCollapsed = true" [routerLinkActiveOptions]="{ exact: true }">Wycieczki</a>
 				</div>
-				<div class="nav-item">
+				<div class="nav-item" *ngIf="user && role === 'Klient'">
 					<a class="nav-link" routerLink="/cart" routerLinkActive="active" (click)="isMenuCollapsed = true" [routerLinkActiveOptions]="{ exact: true }">Koszyk</a>
 				</div>
-				<div class="nav-item">
+				<div class="nav-item" *ngIf="user && role === 'Klient'">
 					<a class="nav-link" routerLink="/trip/bought" routerLinkActive="active" (click)="isMenuCollapsed = true" [routerLinkActiveOptions]="{ exact: true }">Twoje zamówienia</a>
 				</div>
-				<div class="nav-item" *ngIf="user">
+				<div class="nav-item" *ngIf="user && (role === 'Administrator' || role === 'Manager')">
 					<a class="nav-link" routerLink="/trip/add" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dodaj wycieczkę</a>
+				</div>
+				<div class="nav-item" *ngIf="user && role === 'Administrator'">
+					<a class="nav-link" routerLink="/userlist" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Lista użytkowników</a>
 				</div>
 				<div class="nav-item" *ngIf="user === null">
 					<a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Zaloguj</a>

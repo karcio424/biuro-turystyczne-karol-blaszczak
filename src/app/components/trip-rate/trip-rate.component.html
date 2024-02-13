@@ -1,0 +1,5 @@
+<div class="rate-wrapper" *ngIf="user && (role === 'Klient')">
+	<ngb-rating [rate]="getUserRate()" [max]="5" (rateChange)="onRatingChange($event)" *ngIf="user && (role === 'Klient' || role === 'Banned')"></ngb-rating>
+	<ngb-rating [rate]="getAverageRate()" [max]="5" *ngIf="!user || role !== 'Klient'"></ngb-rating>
+	<div *ngIf="!user || role !== 'Klient'"> (Średnia ocena wynosi {{ getAverageRate().toFixed(2) }} z {{ tripRates.length }} recenzji) </div>
+</div>

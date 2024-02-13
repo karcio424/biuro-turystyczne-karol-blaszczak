@@ -8,6 +8,7 @@
     "price": 2500,
     "maxSpots": 20,
     "takenSpots": 0,
+    "rate": 0,
     "description": "Wspaniała wycieczka po polskich górach.",
     "imageRef": "/assets/img/wycieczka1.jpg"
   },
@@ -20,6 +21,7 @@
     "price": 1800,
     "maxSpots": 20,
     "takenSpots": 0,
+    "rate": 0,
     "description": "Wycieczka po dawnych stolicach Polski.",
     "imageRef": "/assets/img/wycieczka2.jpg"
   },
@@ -32,6 +34,7 @@
     "price": 3200,
     "maxSpots": 15,
     "takenSpots": 0,
+    "rate": 0,
     "description": "Podróż przez malownicze destinationCountryobrazy Irlandii.",
     "imageRef": "/assets/img/wycieczka3.jpg"
   },
@@ -44,6 +47,7 @@
     "price": 4800,
     "maxSpots": 15,
     "takenSpots": 0,
+    "rate": 0,
     "description": "Wyprawa do mistycznego Machu Picchu w Peru.",
     "imageRef": "/assets/img/wycieczka4.jpg"
   },
@@ -56,6 +60,7 @@
     "price": 6200,
     "maxSpots": 12,
     "takenSpots": 0,
+    "rate": 0,
     "description": "Niezapomniane safari w Parku Narodowym Serengeti.",
     "imageRef": "/assets/img/wycieczka5.jpg"
   },
@@ -68,6 +73,7 @@
     "price": 9800,
     "maxSpots": 10,
     "takenSpots": 0,
+    "rate": 0,
     "description": "Relaks na rajskich plażach Bora Bora.",
     "imageRef": "/assets/img/wycieczka6.jpg"
   },
@@ -80,6 +86,7 @@
     "price": 5400,
     "maxSpots": 18,
     "takenSpots": 0,
+    "rate": 0,
     "description": "Zwiedzanie najpiękniejszych miast europejskich.",
     "imageRef": "/assets/img/wycieczka7.jpg"
   },
@@ -92,6 +99,7 @@
     "price": 3200,
     "maxSpots": 15,
     "takenSpots": 0,
+    "rate": 0,
     "description": "Przygoda w malowniczych wąwozach Kolorado.",
     "imageRef": "/assets/img/wycieczka8.jpg"
   },
@@ -104,6 +112,7 @@
     "price": 4200,
     "maxSpots": 16,
     "takenSpots": 0,
+    "rate": 0,
     "description": "Odkrywanie uroków egzotycznej Tajlandii.",
     "imageRef": "/assets/img/wycieczka9.jpg"
   },
@@ -116,6 +125,7 @@
     "price": 3200,
     "maxSpots": 14,
     "takenSpots": 0,
+    "rate": 0,
     "description": "Narty i relaks w malowniczych alpejskich regionach.",
     "imageRef": "/assets/img/wycieczka10.jpg"
   }
